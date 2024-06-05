@@ -2,6 +2,7 @@ from functools import cache
 from time import time
 
 
+@cache
 def next(x:int, y:int, c:chr):
     for i in range(x, len(matrix[0])):
         if matrix[y][i] == c:
@@ -77,6 +78,7 @@ if __name__ == '__main__':
                     min_area = a
         end = time()
         print(f"Test {i + 1} took {end - start} s")
+        next.cache_clear()
         if min_area >= 1e1000:
             print("impossible")
         else:
